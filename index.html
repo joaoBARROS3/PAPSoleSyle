@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3ee">
+  <meta name="description" content="Sapatilhas escolhidas para acompanhar o teu ritmo. Descobre a seleção SoleStyle.">
+  <title>SoleStyle — Encontra o teu ritmo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/catalog.js" defer></script>
+  <script src="js/storefront.js" defer></script>
+</head>
+<body>
+  <div class="announcement">Envio grátis em compras acima de 80 € <span aria-hidden="true">·</span> Devoluções até 30 dias</div>
+
+  <header class="site-header">
+    <a class="wordmark" href="#inicio" aria-label="SoleStyle, página inicial">sole<span>style</span><i>.</i></a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="#colecao">Novidades</a>
+      <a href="#colecao" data-nav-filter="homem">Homem</a>
+      <a href="#colecao" data-nav-filter="mulher">Mulher</a>
+      <a href="#sobre">A nossa seleção</a>
+      <a href="admin.html">Backoffice</a>
+    </nav>
+    <div class="header-actions">
+      <label class="search-box" for="productSearch">
+        <i data-lucide="search" aria-hidden="true"></i>
+        <input id="productSearch" type="search" placeholder="Procurar sapatilhas" autocomplete="off">
+      </label>
+      <button class="cart-trigger" id="openCart" type="button" aria-label="Abrir cesto, 0 artigos">
+        <i data-lucide="shopping-bag" aria-hidden="true"></i>
+        <span class="cart-label">Cesto</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> A rua é tua</p>
+        <h1 id="heroTitle">Encontra o<br>teu <span>ritmo.</span></h1>
+        <p class="hero-description">Sapatilhas com personalidade para todos os caminhos que ainda não fizeste.</p>
+        <a class="button button-dark" href="#colecao">Descobrir coleção <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+        <div class="hero-note"><span class="note-line"></span> Nova estação, novas possibilidades</div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image-wrap">
+          <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1400&q=85" alt="Sapatilha contemporânea em destaque" fetchpriority="high">
+          <span class="hero-sticker">FEITO<br>PARA<br>MOVER</span>
+        </div>
+        <div class="hero-caption"><span>01 / 04</span><span>Forma, função e liberdade.</span></div>
+      </div>
+      <div class="hero-index" aria-hidden="true">SS — 026</div>
+    </section>
+
+    <section class="collection section-wrap" id="colecao" aria-labelledby="collectionTitle">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Escolhas que acompanham</p>
+          <h2 id="collectionTitle">A seleção <span>da semana</span></h2>
+        </div>
+        <a class="text-link" href="#produtos">Ver todos <i data-lucide="arrow-down-right" aria-hidden="true"></i></a>
+      </div>
+
+      <div class="catalog-tools" id="produtos">
+        <div class="filter-list" role="group" aria-label="Filtrar por coleção">
+          <button class="filter-chip is-active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+          <button class="filter-chip" type="button" data-filter="homem" aria-pressed="false">Homem</button>
+          <button class="filter-chip" type="button" data-filter="mulher" aria-pressed="false">Mulher</button>
+          <button class="filter-chip" type="button" data-filter="unissexo" aria-pressed="false">Unissexo</button>
+        </div>
+        <label class="brand-filter" for="brandFilter">
+          <span>Marca</span>
+          <select id="brandFilter">
+            <option value="todas">Todas as marcas</option>
+            <option value="nike">Nike</option>
+            <option value="new balance">New Balance</option>
+            <option value="adidas">adidas</option>
+            <option value="asics">ASICS</option>
+            <option value="salomon">Salomon</option>
+          </select>
+          <i data-lucide="chevron-down" aria-hidden="true"></i>
+        </label>
+      </div>
+
+      <p class="results-count" id="resultsCount" aria-live="polite">6 modelos para descobrir</p>
+      <div class="product-grid" id="productGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>Não encontrámos modelos com esses critérios. Experimenta outra pesquisa.</p>
+      <button class="button button-outline load-more" id="clearFilters" type="button">Limpar filtros</button>
+    </section>
+
+    <section class="manifesto" id="sobre">
+      <div class="manifesto-mark" aria-hidden="true">S.</div>
+      <div><p class="eyebrow">Menos ruído. Mais caminho.</p><h2>O teu próximo par<br>já está <span>por aí.</span></h2></div>
+      <p class="manifesto-copy">Escolhemos modelos que fazem sentido no teu dia. Bons materiais, boas histórias e espaço para fazeres o teu próprio caminho.</p>
+      <a class="manifesto-link" href="#colecao" aria-label="Explorar a coleção"><i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="wordmark footer-wordmark" href="#inicio">sole<span>style</span><i>.</i></a>
+    <p>Passos próprios. Todos os dias.</p>
+    <div class="footer-links"><a href="mailto:ola@solestyle.pt">Contactos</a><a href="#sobre">Envios e devoluções</a><a href="#sobre">Instagram <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+    <span class="copyright">© SoleStyle 2026</span>
+  </footer>
+
+  <dialog class="product-dialog" id="productDialog" aria-labelledby="dialogTitle">
+    <button class="dialog-close" type="button" data-close-dialog aria-label="Fechar detalhes"><i data-lucide="x" aria-hidden="true"></i></button>
+    <div class="dialog-image"><img id="dialogImage" src="" alt=""></div>
+    <div class="dialog-content">
+      <p class="product-brand" id="dialogBrand"></p>
+      <h2 id="dialogTitle"></h2>
+      <p class="dialog-price" id="dialogPrice"></p>
+      <p class="dialog-description" id="dialogDescription"></p>
+      <label class="option-label" for="colorSelect">Cor</label>
+      <select class="size-select" id="colorSelect" aria-label="Selecionar cor"></select>
+      <label class="option-label" for="sizeSelect">Tamanho</label>
+      <select class="size-select" id="sizeSelect">
+        <option value="">Seleciona o teu tamanho</option>
+        <option>36</option><option>37</option><option>38</option><option>39</option><option>40</option><option>41</option><option>42</option><option>43</option><option>44</option><option>45</option>
+      </select>
+      <button class="button button-dark dialog-add" id="dialogAdd" type="button">Adicionar ao cesto <i data-lucide="shopping-bag" aria-hidden="true"></i></button>
+      <p class="size-error" id="sizeError" role="status"></p>
+    </div>
+  </dialog>
+
+  <dialog class="checkout-dialog" id="checkoutDialog" aria-labelledby="checkoutTitle">
+    <button class="dialog-close" type="button" data-close-checkout aria-label="Fechar checkout"><i data-lucide="x" aria-hidden="true"></i></button>
+    <p class="eyebrow">Só mais um passo</p>
+    <h2 id="checkoutTitle">Finalizar encomenda</h2>
+    <p class="checkout-total">Total da encomenda <strong id="checkoutTotal">0,00 €</strong></p>
+    <form id="checkoutForm">
+      <label for="customerName">Nome completo</label>
+      <input id="customerName" name="name" autocomplete="name" required>
+      <label for="customerEmail">Email</label>
+      <input id="customerEmail" name="email" type="email" autocomplete="email" required>
+      <label for="customerPhone">Telefone</label>
+      <input id="customerPhone" name="phone" type="tel" autocomplete="tel" required>
+      <label for="customerAddress">Morada</label>
+      <input id="customerAddress" name="address" autocomplete="street-address" required>
+      <div class="address-row">
+        <div><label for="customerPostcode">Código postal</label><input id="customerPostcode" name="postcode" autocomplete="postal-code" required></div>
+        <div><label for="customerCity">Localidade</label><input id="customerCity" name="city" autocomplete="address-level2" required></div>
+      </div>
+      <p class="checkout-note">Demonstração: os dados não são enviados nem guardados num servidor.</p>
+      <button class="button button-dark checkout-submit" type="submit">Registar encomenda <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+    </form>
+  </dialog>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="O teu cesto" aria-hidden="true">
+    <div class="drawer-heading"><div><p class="eyebrow">Quase teu</p><h2>O teu cesto <span id="drawerItemCount">(0)</span></h2></div><button class="icon-button" id="closeCart" type="button" aria-label="Fechar cesto"><i data-lucide="x" aria-hidden="true"></i></button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <p class="cart-empty" id="cartEmpty">O cesto está à espera do teu próximo par.</p>
+    <div class="cart-summary" id="cartSummary" hidden><div><span>Subtotal</span><strong id="cartTotal">0,00 €</strong></div><p>Envio calculado no checkout.</p><button class="button button-dark checkout-button" id="checkoutButton" type="button">Continuar para checkout <i data-lucide="arrow-right" aria-hidden="true"></i></button></div>
+  </aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>

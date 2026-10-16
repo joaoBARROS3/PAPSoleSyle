@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#20211d">
+  <title>Backoffice — SoleStyle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/catalog.js" defer></script>
+  <script src="js/admin.js" defer></script>
+</head>
+<body>
+  <div class="admin-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html">sole<span>style</span><i>.</i></a>
+      <p class="sidebar-label">Workspace</p>
+      <a class="side-link active" href="#products"><i data-lucide="layout-dashboard"></i> Produtos</a>
+      <a class="side-link" href="index.html"><i data-lucide="store"></i> Ver loja</a>
+      <div class="sidebar-bottom"><span class="status-dot"></span><span>Modo local</span></div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="topbar">
+        <div class="breadcrumb">SoleStyle <span>/</span> Backoffice</div>
+        <a class="view-store" href="index.html"><i data-lucide="external-link"></i> Abrir loja</a>
+      </header>
+
+      <section class="page-content" id="products">
+        <div class="page-heading">
+          <div><p class="eyebrow">Gestão de catálogo</p><h1>Produtos</h1><p class="subheading">Mantém a seleção SoleStyle atualizada.</p></div>
+          <button class="primary-button" id="addProduct" type="button"><i data-lucide="plus"></i> Adicionar produto</button>
+        </div>
+
+        <div class="local-notice"><i data-lucide="info"></i><span>As alterações ficam guardadas neste browser. Este backoffice ainda não tem autenticação nem sincronização com servidor.</span></div>
+
+        <div class="metrics" aria-label="Resumo do catálogo">
+          <article class="metric"><span>Produtos ativos</span><strong id="productMetric">0</strong><i data-lucide="package"></i></article>
+          <article class="metric"><span>Marcas</span><strong id="brandMetric">0</strong><i data-lucide="tags"></i></article>
+          <article class="metric"><span>Preço médio</span><strong id="averageMetric">0,00 €</strong><i data-lucide="badge-euro"></i></article>
+        </div>
+
+        <section class="table-panel" aria-labelledby="tableTitle">
+          <div class="table-toolbar">
+            <div><h2 id="tableTitle">Catálogo</h2><p id="tableCount">0 produtos</p></div>
+            <label class="admin-search"><i data-lucide="search"></i><input id="adminSearch" type="search" placeholder="Pesquisar produto ou marca" aria-label="Pesquisar produto ou marca"></label>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th scope="col">Produto</th><th scope="col">Marca</th><th scope="col">Categoria</th><th scope="col">Preço</th><th scope="col"><span class="sr-only">Ações</span></th></tr></thead>
+              <tbody id="productRows"></tbody>
+            </table>
+          </div>
+          <p class="table-empty" id="tableEmpty" hidden>Não há produtos para apresentar.</p>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="product-form-dialog" id="productFormDialog" aria-labelledby="formTitle">
+    <form id="productForm">
+      <div class="form-heading"><div><p class="eyebrow">Catálogo</p><h2 id="formTitle">Adicionar produto</h2></div><button class="icon-button" id="closeForm" type="button" aria-label="Fechar formulário"><i data-lucide="x"></i></button></div>
+      <input type="hidden" id="productId">
+      <div class="form-grid">
+        <label class="field field-full" for="productName">Nome do modelo<input id="productName" name="name" required maxlength="80"></label>
+        <label class="field" for="productBrand">Marca<input id="productBrand" name="brand" required maxlength="40"></label>
+        <label class="field" for="productPrice">Preço (€)<input id="productPrice" name="price" type="number" min="0.01" step="0.01" required></label>
+        <label class="field field-full" for="productImage">URL da imagem<input id="productImage" name="image" type="url" placeholder="https://..." required></label>
+        <fieldset class="field field-full category-field"><legend>Categoria</legend><label><input type="checkbox" name="category" value="homem"> Homem</label><label><input type="checkbox" name="category" value="mulher"> Mulher</label><label><input type="checkbox" name="category" value="unissexo"> Unissexo</label></fieldset>
+        <label class="field field-full" for="productColors">Cores <span>separadas por vírgulas</span><input id="productColors" name="colors" required placeholder="Preto / Branco, Branco / Azul"></label>
+        <label class="field field-full" for="productDescription">Descrição<textarea id="productDescription" name="description" rows="3" maxlength="280" required></textarea></label>
+      </div>
+      <div class="form-actions"><button class="secondary-button" id="cancelForm" type="button">Cancelar</button><button class="primary-button" type="submit"><i data-lucide="check"></i> Guardar produto</button></div>
+    </form>
+  </dialog>
+  <div class="toast" id="adminToast" role="status" aria-live="polite"></div>
+</body>
+</html>
